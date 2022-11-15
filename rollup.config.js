@@ -1,7 +1,8 @@
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
-import postcss from "rollup-plugin-postcss"
+import postcss from "rollup-plugin-postcss";
+import resolve from "rollup-plugin-node-resolve"
 const pkg = require('./package.json');
 
 export default [
@@ -27,18 +28,27 @@ export default [
         tsconfig: './tsconfig.json',
         exclude: ['**/__tests__/**'],
       }),
-      postcss({ modules: true })
+      resolve(),
+      postcss({ extract: false, modules: false })
     ],
     external: ['react', 'react-dom', '@material-ui/core', '@material-ui/icons'],
   },
   {
     input: 'dist/cjs/types/index.d.ts',
     output: [{ file: 'dist/cjs/index.d.ts', format: 'cjs' }],
-    plugins: [dts(), postcss({ modules: true })],
+    plugins: [
+      dts(),
+      resolve(),
+      postcss({ extract: false, modules: false })
+    ],
   },
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/esm/index.d.ts', format: 'esm' }],
-    plugins: [dts(), postcss({ modules: true })],
+    plugins: [
+      dts(),
+      resolve(),
+      postcss({ extract: false, modules: false })
+    ],
   },
 ];
