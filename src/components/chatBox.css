@@ -1,0 +1,68 @@
+.mebo-chat-button {
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+
+.chatbot-header {
+  height: 48px;
+  background: #007adf;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chatbot-logo {
+  color: #fff;
+  line-height: 60px;
+  padding: 0 30px;
+  margin-bottom: 9px;
+  font-size: 16px;
+}
+
+.chatbot {
+  z-index: 9999;
+  position: fixed;
+  overflow: hidden;
+  opacity: 1;
+  transition: 0.4s;
+  background: #fff;
+  -webkit-font-smoothing: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  height: 90vh;
+  width: 85%;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  box-shadow: 0px 0 25px -5px #888;
+  border-radius: 10px;
+  top: 53%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+}
+
+.chatbot-body {
+  width: 100%;
+  height: calc(100% - 45px);
+  padding-top: 0px;
+  background: #fff;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+}
+
+.chatbot-close-icon {
+  color: #fff;
+  line-height: 60px;
+  padding: 0 30px;
+
+  font-size: 16px;
+}
