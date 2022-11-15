@@ -8,7 +8,7 @@
 }
 
 .chatbot-header {
-  height: 48px;
+  height: 45px;
   background: #007adf;
   position: relative;
   display: flex;
@@ -62,7 +62,6 @@
 .chatbot-close-icon {
   color: #fff;
   line-height: 60px;
-  padding: 0 30px;
-
+  padding: 0 8px;
   font-size: 16px;
 }
