@@ -28,18 +28,19 @@ meboで作成したチャットボットを簡単にReact製のWebサービス�
 
 
 ## DEMO
-TBD
+公式サイトの右下にあるボタンから、実際の挙動をご覧いただけます。
+https://mebo.work
 
 
-## 利用方法
+## 利用手順
 
 ### 事前準備
 [こちら](https://mebo.work)からミーボを利用して、チャットボットを作成してください。
 
-公式ガイド  
+チャットボットの作成の詳細は公式ガイドをご参照ください。  
 https://zenn.dev/makunugi/books/f3d9eb62b6d133  
 　　
-チャットボットを作成したら、公開設定にてチャットボットを「一般公開」してください。
+チャットボットを作成したら、[公開設定画面(要ログイン)](https://mebo-admin.work/admin/publish)にてチャットボットを「一般公開」してください。
 
 <img src="https://i.imgur.com/oK2cHSB.png" width="300px">  
   
@@ -48,16 +49,93 @@ https://zenn.dev/makunugi/books/f3d9eb62b6d133
 ### インストール
 npm経由
 ```sh
-npm install --save @makunugi/react-mebo-chatbox
+npm install react-mebo-chatbot
 ```
 yarn経由
+```sh
+yarn add react-mebo-chatbot
 ```
-TBD
+
+**⚠️ ver.0.1.7より前のバージョンは正常に動作しませんのでご注意ください。**
+
+
+### 使い方
+
+import
+```ts
+import { ChatBoxImageButton, ChatBoxTextButton } from "react-mebo-chatbot"
+```
+
+#### Components
+コンポーネントは２種類あります。
+
+- ChatBoxImageButton
+- ChatBoxTextButton
+
+これらいずれかのコンポーネントをrootページもしくはチャットボットを設置したいページへ追加します。
+
+```ts
+      <ChatBoxTextButton
+        buttonWidth={200}
+        buttonHeight={80}
+        chatSrc='<チャットページのURL>'
+        buttonLabel='DEMO用の会話AIと話す'
+        buttonBorderRadius={10}
+        chatHeaderColor={"#303f9f"}
+        chatHeaderTitle={"DEMO用のチャットボット"}
+      />
+```
+
+##### ChatBoxImageButton
+
+ページ右下にチャットボット表示用の「画像」を設置します。
+
+実装例 (最小設定 ※必須の項目のみ指定)
+```ts
+      <ChatBoxImageButton
+        chatSrc='<チャットページのURL>'
+        imageButtonImage='<画像のURL>'
+      />
+```
+
+##### ChatBoxTextButton
+
+<img src="https://i.imgur.com/ACYH1hp.png" width="400px">  
+
+ページ右下にチャットボット表示用のテキスト付きのボタンを設置します。  
+
+実装例 (最小設定 ※必須の項目のみ指定)
+```ts
+      <ChatBoxTextButton
+        chatSrc='<チャットページのURL>'
+        buttonLabel='<ボタンに表示する文言>'
+      />
+```
+ 
+パラメータ一覧
+```ts
+    // チャットボットの公開URLを指定
+    chatSrc: string; 👈 必須
+
+    // チャット画面表示ボタンのプロパティ
+    buttonTextColor?: string; // ボタンのテキストカラー
+    buttonBackgroundColor?: string; // ボタンの背景色
+    buttonLabel: string; 👈 必須 // ボタンの文言
+    buttonWidth?: number; // ボタンのWidth
+    buttonHeight?: number;// ボタンのHeight
+    buttonBorderRadius?: number; // ボタンのRadius
+    buttonMerginRight?: number; // ボタンの右下のマージン
+    buttonMerginBottom?: number; // ボタンの下のマージン
+    buttonFontSize?: number; // ボタンのフォントサイズ
+
+    // チャット画面のヘッダー用プロパティ
+    chatHeaderColor?: string; // チャット画面のヘッダーの色
+    chatHeaderTitle?: string; // チャット画面のヘッダーのタイトル
 ```
 
 
 License
 -------
 
-react-mebo-chatbox is licensed under the [MIT](https://opensource.org/licenses/mit-license.php) license.  
+react-mebo-chatbot is licensed under the [MIT](https://opensource.org/licenses/mit-license.php) license.  
 Copyright &copy; 2022, maKunugi
