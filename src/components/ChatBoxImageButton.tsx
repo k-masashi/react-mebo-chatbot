@@ -21,91 +21,99 @@ export interface ChatBoxImageButtonProps {
     chatHeaderTitle?: string;
 }
 
-export const ChatBoxImageButton = ({
-    chatSrc,
-    imageButtonImage,
-    buttonWidth,
-    buttonHeight,
-    buttonBorderRadius,
-    buttonMerginRight,
-    buttonMerginBottom,
-    chatHeaderColor,
-    chatHeaderTitle,
-}: ChatBoxImageButtonProps) => {
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-        <>
-            <div className={["mebo-chat-button"].join(" ")}>
-                <a
-                    href="#"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        setIsOpen(true);
+export class ChatBoxImageButton extends React.Component<ChatBoxImageButtonProps> {
+    state = { isOpen: false }
+    render() {
+        const {
+            chatSrc,
+            imageButtonImage,
+            buttonWidth,
+            buttonHeight,
+            buttonBorderRadius,
+            buttonMerginRight,
+            buttonMerginBottom,
+            chatHeaderColor,
+            chatHeaderTitle,
+        } = this.props;
+        return (
+            <>
+                <div className={["mebo-chat-button"].join(" ")}>
+                    <a
+                        href="#"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            this.setState({
+                                isOpen: true
+                            });
+                        }}
+                    >
+                        <img
+                            style={{
+                                margin: 0,
+                                top: "auto",
+                                right: buttonMerginRight ? buttonMerginRight : 16,
+                                bottom: buttonMerginBottom ? buttonMerginBottom : 16,
+                                width: buttonWidth ? buttonWidth : "100",
+                                height: buttonHeight ? buttonHeight : "100",
+                                borderRadius: buttonBorderRadius ? buttonBorderRadius : "100",
+                                left: "auto",
+                                position: "fixed",
+                                zIndex: "1000",
+                                display: this.state.isOpen ? "none" : "",
+                            }}
+                            src={imageButtonImage}
+                            alt=""
+                        />
+                    </a>
+                </div>
+                <div
+                    style={{
+                        margin: 0,
+                        top: "auto",
+                        right: buttonMerginRight,
+                        bottom: buttonMerginBottom,
+                        height: "80%",
+                        width: "70%",
+                        left: "auto",
+                        position: "fixed",
+                        zIndex: "1000",
+                        display: this.state.isOpen ? "" : "none",
                     }}
                 >
-                    <img
-                        style={{
-                            margin: 0,
-                            top: "auto",
-                            right: buttonMerginRight ? buttonMerginRight : 16,
-                            bottom: buttonMerginBottom ? buttonMerginBottom : 16,
-                            width: buttonWidth ? buttonWidth : "100",
-                            height: buttonHeight ? buttonHeight : "100",
-                            borderRadius: buttonBorderRadius ? buttonBorderRadius : "100",
-                            left: "auto",
-                            position: "fixed",
-                            zIndex: "1000",
-                            display: isOpen ? "none" : "",
-                        }}
-                        src={imageButtonImage}
-                        alt=""
-                    />
-                </a>
-            </div>
-            <div
-                style={{
-                    margin: 0,
-                    top: "auto",
-                    right: buttonMerginRight,
-                    bottom: buttonMerginBottom,
-                    height: "80%",
-                    width: "70%",
-                    left: "auto",
-                    position: "fixed",
-                    zIndex: "1000",
-                    display: isOpen ? "" : "none",
-                }}
-            >
-                <div className="chatbot">
-                    <div
-                        className="chatbot-header"
-                        style={{ background: chatHeaderColor }}
-                    >
-                        <div className="chatbot-logo">{chatHeaderTitle}</div>
-                        <div className="chatbot-close-icon">
-                            <IconButton
-                                onClick={(e) => {
-                                    setIsOpen(false);
-                                }}
-                            >
-                                <CloseIcon style={{ color: "white" }} />
-                            </IconButton>
+                    <div className="chatbot">
+                        <div
+                            className="chatbot-header"
+                            style={{ background: chatHeaderColor }}
+                        >
+                            <div className="chatbot-logo">{chatHeaderTitle}</div>
+                            <div className="chatbot-close-icon">
+                                <IconButton
+                                    onClick={(e) => {
+                                        this.setState({
+                                            isOpen: false
+                                        });
+                                    }}
+                                >
+                                    <CloseIcon style={{ color: "white" }} />
+                                </IconButton>
+                            </div>
+                        </div>
+                        <div className="chatbot-body">
+                            <iframe
+                                id="mebo-iframe"
+                                className="iframe"
+                                title="Mebo Inline Frame"
+                                width="100%"
+                                height="100%"
+                                scrolling="no"
+                                frameBorder="no"
+                                src={chatSrc}
+                            ></iframe>
                         </div>
                     </div>
-                    <div className="chatbot-body">
-                        <iframe
-                            id="mebo-iframe"
-                            className="iframe"
-                            title="Mebo Inline Frame"
-                            width="100%"
-                            height="100%"
-                            scrolling="no"
-                            frameBorder="no"
-                            src={chatSrc}
-                        ></iframe>
-                    </div>
                 </div>
-            </div>
-        </>
-    );
-};
+            </>
+        );
+    }
+
+}
