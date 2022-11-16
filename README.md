@@ -1,7 +1,7 @@
-# react-mebo-chatbox💬
+# react-mebo-chatbot💬
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-「react-mebo-chatbox」はReactで開発したプロジェクトに、スピーディにチャットボットを設置するためのReactコンポーネントです。[mebo(ミーボ)](https://mebo.work)という、チャットボット構築サービスで作成したチャットボットを簡単にサイトへ埋め込めます。
+「react-mebo-chatbot」はReactで開発したプロジェクトに、スピーディにチャットボットを設置するためのReactコンポーネントです。[mebo(ミーボ)](https://mebo.work)という、チャットボット構築サービスで作成したチャットボットを簡単にサイトへ埋め込めます。
 
 
 ## mebo(ミーボ)とは？
