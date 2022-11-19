@@ -23,7 +23,8 @@ Reactで開発したWebページの右下にチャットボット呼び出し用
 **詳細は後述しますが、ボタンのデザインは変更が可能です。**
 
 ### チャットボット呼び出し用のボタンからチャットボットを起動
-meboで作成したチャットボットを簡単にReact製のWebサービスで利用できます。
+meboで作成したチャットボットを簡単にReact製のWebサービスで利用できます。  
+
 <img src="https://i.imgur.com/wkDStem.png" width="400px">  
 
 
@@ -88,6 +89,8 @@ import { ChatBoxImageButton, ChatBoxTextButton } from "react-mebo-chatbot"
 
 ##### ChatBoxImageButton
 
+<img src="https://i.imgur.com/YnO7G6x.png" width="400px">  
+
 ページ右下にチャットボット表示用の「画像」を設置します。
 
 実装例 (最小設定 ※必須の項目のみ指定)
@@ -97,6 +100,25 @@ import { ChatBoxImageButton, ChatBoxTextButton } from "react-mebo-chatbot"
         imageButtonImage='<画像のURL>'
       />
 ```
+
+パラメータ一覧
+```ts
+    // チャットボットの公開URLを指定
+    chatSrc: string; 👈 必須
+
+    // チャット画面表示ボタンのプロパティ
+    imageButtonImage: string; 👈 必須 // 画像のsrc (URL)
+    buttonWidth?: number; // ボタンのWidth
+    buttonHeight?: number;// ボタンのHeight
+    buttonBorderRadius?: number; // ボタンのRadius
+    buttonMerginRight?: number; // ボタンの右下のマージン
+    buttonMerginBottom?: number; // ボタンの下のマージン
+
+    // チャット画面のヘッダー用プロパティ
+    chatHeaderColor?: string; // チャット画面のヘッダーの色
+    chatHeaderTitle?: string; // チャット画面のヘッダーのタイトル
+```
+
 
 ##### ChatBoxTextButton
 
