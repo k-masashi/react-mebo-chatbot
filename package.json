@@ -1,6 +1,6 @@
 {
   "name": "react-mebo-chatbot",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "author": "makunugi <makunugi@mebo.work>",
