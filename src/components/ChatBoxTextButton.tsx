@@ -22,6 +22,10 @@ export interface ChatBoxTextButtonProps {
     // チャット画面のヘッダー用プロパティ
     chatHeaderColor?: string;
     chatHeaderTitle?: string;
+
+    // チャットボットのウィンドウの表示イベント
+    onChatBoxOpend?: () => void;
+    onChatBoxClosed?: () => void;
 }
 
 export class ChatBoxTextButton extends React.Component<ChatBoxTextButtonProps> {
@@ -41,6 +45,8 @@ export class ChatBoxTextButton extends React.Component<ChatBoxTextButtonProps> {
             buttonFontSize,
             chatHeaderColor,
             chatHeaderTitle,
+            onChatBoxOpend,
+            onChatBoxClosed
         } = this.props;
         return (
             <>
@@ -52,6 +58,7 @@ export class ChatBoxTextButton extends React.Component<ChatBoxTextButtonProps> {
                             this.setState({
                                 isOpen: true
                             });
+                            if (this.props.onChatBoxOpend) this.props.onChatBoxOpend();
                         }}
                         style={{
                             fontSize: buttonFontSize ? buttonFontSize : 15,
@@ -100,6 +107,7 @@ export class ChatBoxTextButton extends React.Component<ChatBoxTextButtonProps> {
                                         this.setState({
                                             isOpen: false
                                         });
+                                        if (this.props.onChatBoxClosed) this.props.onChatBoxClosed();
                                     }}
                                 >
                                     <CloseIcon style={{ color: "white" }} />

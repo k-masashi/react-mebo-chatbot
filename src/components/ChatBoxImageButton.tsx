@@ -19,6 +19,10 @@ export interface ChatBoxImageButtonProps {
     // チャット画面のヘッダー用プロパティ
     chatHeaderColor?: string;
     chatHeaderTitle?: string;
+
+    // チャットボットのウィンドウの表示イベント
+    onChatBoxOpend?: () => void;
+    onChatBoxClosed?: () => void;
 }
 
 export class ChatBoxImageButton extends React.Component<ChatBoxImageButtonProps> {
@@ -34,6 +38,8 @@ export class ChatBoxImageButton extends React.Component<ChatBoxImageButtonProps>
             buttonMerginBottom,
             chatHeaderColor,
             chatHeaderTitle,
+            onChatBoxOpend,
+            onChatBoxClosed
         } = this.props;
         return (
             <>
@@ -45,6 +51,7 @@ export class ChatBoxImageButton extends React.Component<ChatBoxImageButtonProps>
                             this.setState({
                                 isOpen: true
                             });
+                            if (this.props.onChatBoxOpend) this.props.onChatBoxOpend();
                         }}
                     >
                         <img
@@ -92,6 +99,7 @@ export class ChatBoxImageButton extends React.Component<ChatBoxImageButtonProps>
                                         this.setState({
                                             isOpen: false
                                         });
+                                        if (this.props.onChatBoxClosed) this.props.onChatBoxClosed();
                                     }}
                                 >
                                     <CloseIcon style={{ color: "white" }} />
