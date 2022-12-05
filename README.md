@@ -117,6 +117,10 @@ import { ChatBoxImageButton, ChatBoxTextButton } from "react-mebo-chatbot"
     // チャット画面のヘッダー用プロパティ
     chatHeaderColor?: string; // チャット画面のヘッダーの色
     chatHeaderTitle?: string; // チャット画面のヘッダーのタイトル
+
+    // チャットボットのウィンドウの表示イベント
+    onChatBoxOpend?: () => void;
+    onChatBoxClosed?: () => void;
 ```
 
 
@@ -153,6 +157,10 @@ import { ChatBoxImageButton, ChatBoxTextButton } from "react-mebo-chatbot"
     // チャット画面のヘッダー用プロパティ
     chatHeaderColor?: string; // チャット画面のヘッダーの色
     chatHeaderTitle?: string; // チャット画面のヘッダーのタイトル
+
+    // チャットボットのウィンドウの表示イベント
+    onChatBoxOpend?: () => void;
+    onChatBoxClosed?: () => void;
 ```
 
 
